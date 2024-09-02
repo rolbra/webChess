@@ -1,268 +1,105 @@
 <main class="main">
   <div class="content">
-    <h1>Hello webChess</h1>
+    <h1>Play chess one vs one</h1>
     
     <table class="board">
       <tr>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div>1</div>
-        </th>
-        <th>
-          <div>2</div>
-        </th>
-        <th>
-          <div>3</div>
-        </th>
-        <th>
-          <div>4</div>
-        </th>
-        <th>
-          <div>5</div>
-        </th>
-        <th>
-          <div>6</div>
-        </th>
-        <th>
-          <div>7</div>
-        </th>
-        <th>
-          <div>8</div>
-        </th>
+        <th #h0></th>
+        <th #h1>A</th>
+        <th #h2>B</th>
+        <th #h3>C</th>
+        <th #h4>D</th>
+        <th #h5>E</th>
+        <th #h6>F</th>
+        <th #h7>G</th>
+        <th #h8>H</th>
       </tr>
       <tr>
-        <th>
-          <div>A</div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
+        <th>8</th>
+        <td [innerHTML]="cellArray[0][7]"></td>
+        <td [innerHTML]="cellArray[1][7]"></td>
+        <td [innerHTML]="cellArray[2][7]"></td>
+        <td [innerHTML]="cellArray[3][7]"></td>
+        <td [innerHTML]="cellArray[4][7]"></td>
+        <td [innerHTML]="cellArray[5][7]"></td>
+        <td [innerHTML]="cellArray[6][7]"></td>
+        <td [innerHTML]="cellArray[7][7]"></td>
       </tr>
       <tr>
-        <th>
-          <div>B</div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
+        <th>7</th>
+        <td [innerHTML]="cellArray[0][6]"></td>
+        <td [innerHTML]="cellArray[1][6]"></td>
+        <td [innerHTML]="cellArray[2][6]"></td>
+        <td [innerHTML]="cellArray[3][6]"></td>
+        <td [innerHTML]="cellArray[4][6]"></td>
+        <td [innerHTML]="cellArray[5][6]"></td>
+        <td [innerHTML]="cellArray[6][6]"></td>
+        <td [innerHTML]="cellArray[7][6]"></td>
       </tr>
       <tr>
-        <th>
-          <div>C</div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
+        <th>6</th>
+        <td [innerHTML]="cellArray[0][5]"></td>
+        <td [innerHTML]="cellArray[1][5]"></td>
+        <td [innerHTML]="cellArray[2][5]"></td>
+        <td [innerHTML]="cellArray[3][5]"></td>
+        <td [innerHTML]="cellArray[4][5]"></td>
+        <td [innerHTML]="cellArray[5][5]"></td>
+        <td [innerHTML]="cellArray[6][5]"></td>
+        <td [innerHTML]="cellArray[7][5]"></td>
       </tr>
       <tr>
-        <th>
-          <div>D</div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
+        <th>5</th>
+        <td [innerHTML]="cellArray[0][4]"></td>
+        <td [innerHTML]="cellArray[1][4]"></td>
+        <td [innerHTML]="cellArray[2][4]"></td>
+        <td [innerHTML]="cellArray[3][4]"></td>
+        <td [innerHTML]="cellArray[4][4]"></td>
+        <td [innerHTML]="cellArray[5][4]"></td>
+        <td [innerHTML]="cellArray[6][4]"></td>
+        <td [innerHTML]="cellArray[7][4]"></td>
       </tr>
       <tr>
-        <th>
-          <div>E</div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
+        <th>4</th>
+        <td [innerHTML]="cellArray[0][3]"></td>
+        <td [innerHTML]="cellArray[1][3]"></td>
+        <td [innerHTML]="cellArray[2][3]"></td>
+        <td [innerHTML]="cellArray[3][3]"></td>
+        <td [innerHTML]="cellArray[4][3]"></td>
+        <td [innerHTML]="cellArray[5][3]"></td>
+        <td [innerHTML]="cellArray[6][3]"></td>
+        <td [innerHTML]="cellArray[7][3]"></td>
       </tr>
       <tr>
-        <th>
-          <div>F</div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
+        <th>3</th>
+        <td [innerHTML]="cellArray[0][2]"></td>
+        <td [innerHTML]="cellArray[1][2]"></td>
+        <td [innerHTML]="cellArray[2][2]"></td>
+        <td [innerHTML]="cellArray[3][2]"></td>
+        <td [innerHTML]="cellArray[4][2]"></td>
+        <td [innerHTML]="cellArray[5][2]"></td>
+        <td [innerHTML]="cellArray[6][2]"></td>
+        <td [innerHTML]="cellArray[7][2]"></td>
+      <tr>
+        <th>2</th>
+        <td [innerHTML]="cellArray[0][1]"></td>
+        <td [innerHTML]="cellArray[1][1]"></td>
+        <td [innerHTML]="cellArray[2][1]"></td>
+        <td [innerHTML]="cellArray[3][1]"></td>
+        <td [innerHTML]="cellArray[4][1]"></td>
+        <td [innerHTML]="cellArray[5][1]"></td>
+        <td [innerHTML]="cellArray[6][1]"></td>
+        <td [innerHTML]="cellArray[7][1]"></td>
       </tr>
       <tr>
-        <th>
-          <div>G</div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-      </tr>
-      <tr>
-        <th>
-          <div>H</div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
-        <th>
-          <div class="cell"></div>
-        </th>
+        <th>1</th>
+        <td [innerHTML]="cellArray[0][0]"></td>
+        <td [innerHTML]="cellArray[1][0]"></td>
+        <td [innerHTML]="cellArray[2][0]"></td>
+        <td [innerHTML]="cellArray[3][0]"></td>
+        <td [innerHTML]="cellArray[4][0]"></td>
+        <td [innerHTML]="cellArray[5][0]"></td>
+        <td [innerHTML]="cellArray[6][0]"></td>
+        <td [innerHTML]="cellArray[7][0]"></td>
       </tr>
     </table>
 
