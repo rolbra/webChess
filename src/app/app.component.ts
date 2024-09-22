@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PositionerService } from './positioner.service';
 
-
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,15 +9,19 @@ import { PositionerService } from './positioner.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent implements OnInit {
-  
+
   title = 'webChess';
   public cellArray: string[][] = [];
 
   private positions: Object;
   private positioner: PositionerService;
 
+  public products: any;
+
   constructor( positioner: PositionerService ){
+    //initialize empty array for chess board
     let arraySize = 8;
     for(let col = 0; col < arraySize; col++){
       this.cellArray[col] = [];
@@ -33,6 +35,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.positioner.getPositionsFromServer();
     this.takeoverPositions(this.positions);
   }
 
@@ -48,7 +51,6 @@ export class AppComponent implements OnInit {
 
     const parsedStr = JSON.parse(positionString) as parsedType[];
 
-    //console.log(parsedStr);
     parsedStr.forEach(figure => {
       this.cellArray[figure.x][figure.y] = figure.code;
     });

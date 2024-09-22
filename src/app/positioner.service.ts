@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClientService } from './http-client.service';
 
 const positions = [
   {
@@ -200,9 +201,17 @@ const positions = [
 })
 export class PositionerService {
 
-  constructor() { }
+  constructor( private httpClientSrv: HttpClientService ) { }
 
   getPositions() : Object{
     return positions;
+  }
+
+  getPositionsFromServer(): Object{
+    this.httpClientSrv.getAllPositions().subscribe( ( response ) => {
+      console.log(response);
+      return {};
+    })
+    return {};
   }
 }
