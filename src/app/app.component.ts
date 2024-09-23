@@ -10,12 +10,12 @@ import { PositionerService } from './positioner.service';
   styleUrl: './app.component.scss'
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent{
 
   title = 'webChess';
   public cellArray: string[][] = [];
 
-  private positions: Object;
+  private positions!: Object;
   private positioner: PositionerService;
 
   public products: any;
@@ -31,12 +31,11 @@ export class AppComponent implements OnInit {
     }
 
     this.positioner = positioner;
-    this.positions = this.positioner.getPositions();
-  }
 
-  ngOnInit(): void {
-    this.positioner.getPositionsFromServer();
-    this.takeoverPositions(this.positions);
+    this.positioner.getPositionsFromServer().subscribe( respsonse => {
+      this.positions = respsonse;
+      this.takeoverPositions(this.positions);
+    });
   }
 
   takeoverPositions(positions: Object){
