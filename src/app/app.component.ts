@@ -34,6 +34,7 @@ export class AppComponent{
 
     this.positioner.getPositionsFromServer().subscribe( respsonse => {
       this.positions = respsonse;
+      console.log(this.positions);
       this.takeoverPositions(this.positions);
     });
   }
@@ -50,8 +51,13 @@ export class AppComponent{
 
     const parsedStr = JSON.parse(positionString) as parsedType[];
 
-    parsedStr.forEach(figure => {
-      this.cellArray[figure.x][figure.y] = figure.code;
-    });
+    try{
+      parsedStr.forEach(figure => {
+        this.cellArray[figure.x][figure.y] = figure.code;
+      });
+    }
+    catch(error){
+      console.warn("unexpected response from server for 'positions'");
+    }
   }
 }
