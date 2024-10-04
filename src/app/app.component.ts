@@ -18,7 +18,8 @@ export class AppComponent{
   private positions!: Object;
   private positioner: PositionerService;
 
-  public products: any;
+  private firstSelected: boolean = false;
+  private secondSelected: boolean = false;
 
   constructor( positioner: PositionerService ){
     //initialize empty array for chess board
@@ -62,7 +63,18 @@ export class AppComponent{
   }
 
   public onClick(event: any){
+    if( !event.target.id ){
+      return;
+    }
     console.warn( 'board clicked: ', event.target.id);
-    event.target.style.borderColor = 'chocolate';
+
+    if( !this.firstSelected ){
+      event.target.style.borderColor = 'chocolate';
+      this.firstSelected = true;
+    }
+    else if( !this.secondSelected ){
+      event.target.style.borderColor = 'chocolate';
+      this.secondSelected = true;
+    }
   }
 }
