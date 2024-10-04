@@ -62,6 +62,6 @@ export class AppComponent{
   }
 
   public onClick(event: any){
-    console.warn( 'board clicked: ', event.id);
+    console.warn( 'board clicked: ', event.target.id);
   }
 }
