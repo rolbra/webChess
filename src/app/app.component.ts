@@ -63,5 +63,6 @@ export class AppComponent{
 
   public onClick(event: any){
     console.warn( 'board clicked: ', event.target.id);
+    event.target.style.borderColor = 'chocolate';
   }
 }

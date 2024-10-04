@@ -29,3 +29,7 @@ td{
 .pointer{
     cursor: pointer;
 }
+
+.static{
+    pointer-events: none;
+}
