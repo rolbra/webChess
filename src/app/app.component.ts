@@ -60,4 +60,8 @@ export class AppComponent{
       console.warn("unexpected response from server for 'positions'");
     }
   }
+
+  public onClick(event: any){
+    console.warn( 'board clicked: ', event.id);
+  }
 }

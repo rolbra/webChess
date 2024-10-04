@@ -16,6 +16,6 @@ export class HttpClientService{
       .set('Access-Control-Allow-Origin', '*');
     const body = {gameId:"A489-78D1"};
     
-    return this.httpClient.post('http://localhost:8080/api', JSON.stringify(body), {headers});
+    return this.httpClient.post('http://localhost:8080/api/positions', JSON.stringify(body), {headers});
   }
 }
