@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PositionerService } from './positioner.service';
 
@@ -18,11 +18,22 @@ export class AppComponent{
   private positions!: Object;
   private positioner: PositionerService;
 
+  private reply!: Object;
+
   private firstSelected: boolean = false;
   private secondSelected: boolean = false;
 
+  private moveFrom!: Element;
+  private moveTo!: Element;
+
   constructor( positioner: PositionerService ){
     //initialize empty array for chess board
+    this.resetPositions();
+
+    this.positioner = positioner;
+  }
+
+  resetPositions(){
     let arraySize = 8;
     for(let col = 0; col < arraySize; col++){
       this.cellArray[col] = [];
@@ -30,17 +41,11 @@ export class AppComponent{
         this.cellArray[col][row] = '';
       }
     }
-
-    this.positioner = positioner;
-
-    this.positioner.getPositionsFromServer().subscribe( respsonse => {
-      this.positions = respsonse;
-      console.log(this.positions);
-      this.takeoverPositions(this.positions);
-    });
   }
 
   takeoverPositions(positions: Object){
+    this.resetPositions();
+    
     let positionString = JSON.stringify(positions);
     
     type parsedType = {
@@ -69,12 +74,32 @@ export class AppComponent{
     console.warn( 'board clicked: ', event.target.id);
 
     if( !this.firstSelected ){
-      event.target.style.borderColor = 'chocolate';
+      this.moveFrom = event.target;
       this.firstSelected = true;
     }
     else if( !this.secondSelected ){
       event.target.style.borderColor = 'chocolate';
       this.secondSelected = true;
     }
+  }
+
+  public onKeydown(event: KeyboardEvent){
+    let message = 'key pressed: ';
+    console.warn(message + event.key);
+  }
+
+  public newGame(){
+    this.positioner.getPositionsFromServer().subscribe( respsonse => {
+      this.positions = respsonse;
+      console.log(this.positions);
+      this.takeoverPositions(this.positions);
+    });
+  }
+
+  public move(){
+    this.positioner.move().subscribe( respsonse => {
+      this.reply = respsonse;
+      console.log(this.reply);
+    });
   }
 }
