@@ -23,8 +23,8 @@ export class AppComponent{
   private firstSelected: boolean = false;
   private secondSelected: boolean = false;
 
-  private moveFrom!: Element;
-  private moveTo!: Element;
+  private moveFrom!: any;
+  private moveTo!: any;
 
   constructor( positioner: PositionerService ){
     //initialize empty array for chess board
@@ -75,9 +75,11 @@ export class AppComponent{
 
     if( !this.firstSelected ){
       this.moveFrom = event.target;
+      event.target.style.borderColor = 'chocolate';
       this.firstSelected = true;
     }
     else if( !this.secondSelected ){
+      this.moveTo = event.target;
       event.target.style.borderColor = 'chocolate';
       this.secondSelected = true;
     }
@@ -88,7 +90,7 @@ export class AppComponent{
     console.warn(message + event.key);
   }
 
-  public newGame(){
+  public setFigures(){
     this.positioner.getPositionsFromServer().subscribe( respsonse => {
       this.positions = respsonse;
       console.log(this.positions);
@@ -97,9 +99,16 @@ export class AppComponent{
   }
 
   public move(){
-    this.positioner.move().subscribe( respsonse => {
+    this.firstSelected = false;
+    this.secondSelected = false;
+    this.moveFrom.style.borderColor = 'wheat';
+    this.moveTo.style.borderColor = 'wheat';
+    
+    this.positioner.move(this.moveFrom.id, this.moveTo.id).subscribe( respsonse => {
       this.reply = respsonse;
       console.log(this.reply);
     });
+
+    this.setFigures();
   }
 }

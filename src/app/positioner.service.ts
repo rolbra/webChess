@@ -17,7 +17,7 @@ export class PositionerService {
     return this.httpClientSrv.getAllPositions();
   }
 
-  move() : Observable<any>{
-    return this.httpClientSrv.move();
+  move(moveFrom: string, moveTo: string) : Observable<any>{
+    return this.httpClientSrv.move(moveFrom, moveTo);
   }
 }
