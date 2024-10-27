@@ -119,4 +119,14 @@ export class AppComponent{
 
     this.setFigures();
   }
+
+  public resetGame(){
+    console.log('reset game');
+    this.positioner.resetGame().subscribe( respsonse => {
+      this.reply = respsonse;
+      console.log(this.reply);
+    });
+
+    this.setFigures();
+  }
 }

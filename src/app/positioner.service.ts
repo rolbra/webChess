@@ -20,4 +20,8 @@ export class PositionerService {
   move(moveFrom: string, moveTo: string) : Observable<any>{
     return this.httpClientSrv.move(moveFrom, moveTo);
   }
+
+  resetGame() : Observable<any>{
+    return this.httpClientSrv.resetGame();
+  }
 }

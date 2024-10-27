@@ -27,4 +27,13 @@ export class HttpClientService{
     
     return this.httpClient.post('http://localhost:8080/api/move', JSON.stringify(body), {headers});
   }
+
+  resetGame():Observable<any>{
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Access-Control-Allow-Origin', '*');
+      const body = {gameId:"A489-78D1"};
+    
+    return this.httpClient.post('http://localhost:8080/api/resetGame', JSON.stringify(body), {headers});
+  }
 }
