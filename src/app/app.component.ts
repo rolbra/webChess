@@ -59,7 +59,15 @@ export class AppComponent{
 
     try{
       parsedStr.forEach(figure => {
-        this.cellArray[figure.x][figure.y] = figure.code;
+        if(figure.x < 0 || figure.x > 7 || figure.y < 0 || figure.y > 7){
+          console.log(figure.figure + ' is out of range');
+        }
+        else if(!figure.x || !figure.y){
+          console.log(figure.figure + ' invalid position');
+        }
+        else{
+          this.cellArray[figure.x][figure.y] = figure.code;
+        }
       });
     }
     catch(error){
