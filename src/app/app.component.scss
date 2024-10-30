@@ -1,25 +1,44 @@
-.body{
-    background-color: darkslategrey;
+:host{
+    display: block; /* Ensures the host element takes up space */
+    height: inherit;
+}
+
+.main{
+    height: inherit;
+}
+
+.content{
+    height: inherit;
+    background-color: var(--dark, black);
+}
+
+h1{
+    margin: unset;
+    color: var(--light, lightgrey);
+}
+
+button{
+    background-color: var(--highlight, white);
 }
 
 .board{
-    background-color:cadetblue;
-    color: wheat;
+    background-color: var(--middle, darkgrey);
     width: fit-content;
 }
 
 th{
     margin: 1px;
-    border: 1px solid wheat;
-    background-color: wheat;
-    color: cadetblue;
-    width: 30px;
-    height: 30px;
+    border: 1px solid var(--light, lightgrey);
+    background-color: var(--light, lightgrey);
+    color: var(--middle, darkgrey);
+    width: 20px;
+    height: 20px;
 }
 
 td{
     margin: 1px;
-    border: 1px solid wheat;
+    border: 1px solid var(--light, lightgrey);
+    color: black;
     font-size: x-large;
     text-align: center;
     width: 30px;

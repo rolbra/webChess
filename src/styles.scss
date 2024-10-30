@@ -1,4 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+//Color Themes
+.coffee{
+    --highlight: #f2cc77;
+    --light: #c1823d;
+    --middle: #8a461e;
+    --dark: #3f2413;
+}
+.green{
+    --highlight: #f0d497;
+    --light: wheat;
+    --middle: cadetblue;
+    --dark: darkslategrey;
+}
+.barbie{
+    --highlight: #f0d497;
+    --light: rgb(237, 188, 247);
+    --middle: rgb(203, 96, 212);
+    --dark: rgb(69, 17, 85);
+}
+//End Color Themes
+
 body{
-    background-color: darkslategrey;
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Full height */
 }

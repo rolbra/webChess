@@ -1,10 +1,11 @@
 <main class="main">
-  <div class="content">
-    <h1>Play chess one vs one</h1>
+  <div class="content" [ngClass]="themes[currentThemeIndex]">
+    <h1>{{title}}</h1>
 
     <button (click)="setFigures()">start game</button>
     <button (click)="move()">move</button>
     <button (click)="resetGame()">reset game</button>
+    <button id="btnTheme" (click)="switchTheme()">switch theme</button>
 
     <table class="board" (click)="onClick($event)" (keydown)="onKeydown($event)" tabindex="0">
       <tr>

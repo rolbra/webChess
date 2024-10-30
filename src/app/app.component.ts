@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { PositionerService } from './positioner.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 
 export class AppComponent{
 
-  title = 'webChess';
+  public themes: string[] = ['coffee', 'green', 'barbie', ''];
+  public currentThemeIndex: number = 0;
+  public title = 'Welcome to CoffeeChess';
   public cellArray: string[][] = [];
 
   private positions!: Object;
@@ -128,5 +131,9 @@ export class AppComponent{
     });
 
     this.setFigures();
+  }
+
+  public switchTheme(){
+    this.currentThemeIndex = ++this.currentThemeIndex % this.themes.length;
   }
 }
