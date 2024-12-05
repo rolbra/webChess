@@ -34,7 +34,7 @@ th{
     width: 20px;
     height: 20px;
 }
-
+    
 td{
     margin: 1px;
     border: 1px solid var(--light, lightgrey);
@@ -43,6 +43,10 @@ td{
     text-align: center;
     width: 30px;
     height: 30px;
+}
+
+.selectedTh{
+    border: 1px solid var(--highlight, lightgrey);
 }
 
 .pointer{

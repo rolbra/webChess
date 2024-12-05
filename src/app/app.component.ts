@@ -86,12 +86,12 @@ export class AppComponent{
 
     if( !this.firstSelected ){
       this.moveFrom = event.target;
-      event.target.style.borderColor = 'chocolate';
+      event.target.classList.add('selectedTh');
       this.firstSelected = true;
     }
     else if( !this.secondSelected ){
       this.moveTo = event.target;
-      event.target.style.borderColor = 'chocolate';
+      event.target.classList.add('selectedTh');
       this.secondSelected = true;
     }
   }
@@ -112,8 +112,8 @@ export class AppComponent{
   public move(){
     this.firstSelected = false;
     this.secondSelected = false;
-    this.moveFrom.style.borderColor = 'wheat';
-    this.moveTo.style.borderColor = 'wheat';
+    this.moveFrom.classList.remove('selectedTh');
+    this.moveTo.classList.remove('selectedTh');
     
     this.positioner.move(this.moveFrom.id, this.moveTo.id).subscribe( respsonse => {
       this.reply = respsonse;
